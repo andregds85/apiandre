@@ -13,13 +13,18 @@ class CreateVideosTable extends Migration
             $table->id();
             $table->string('id_categoria');
             $table->string('nome');
+            $table->string('descricao');
             $table->string('link');
+            $table->string('embarcado');
+            $table->string('status');
             $table->timestamps();
         });
     }
 
+
+
     public function down()
     {
-        Schema::dropIfExists('videos');
+       Schema::dropIfExists('videos');
     }
 }
