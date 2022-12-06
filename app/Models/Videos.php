@@ -10,18 +10,15 @@ class Videos extends Model
     use HasFactory;
     
     protected $fillable = [
-        'id_categoria', 'nome', 'descricao','link','embarcado','status'
+         'id_categoria',
+         'nome', 
+         'descricao',
+         'link',
+         'embarcado',
+         'status',
     ];
-
-	
 
 }
 
 
 
-$table->string('id_categoria');
-$table->string('nome');
-$table->string('descricao');
-$table->string('link');
-$table->string('embarcado');
-$table->string('status');

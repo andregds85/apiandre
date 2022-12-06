@@ -6,8 +6,8 @@ use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\VideosController;
 
 
-Route::apiResource('Videos', VideosController::class);
-Route::apiResource('Categorias', CategoriasController::class);
+Route::apiResource('videos', VideosController::class);
+Route::apiResource('categorias', CategoriasController::class);
 
 
 
