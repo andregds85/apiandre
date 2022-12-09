@@ -23,3 +23,6 @@ Route::get('/categorias', function () {
 });
 
 
+Route::get('/videos', function () {
+    return view('videos');
+});
