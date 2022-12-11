@@ -14,7 +14,7 @@
 
         <tr>
 
-            <td>{{$categoria->id}}</td>
+          <td>{{$categoria->id}}</td>
 	        <td>{{$categoria->nome}}</td>
 
         </tr>
@@ -50,9 +50,7 @@
   <body>
 
 
-
  @foreach ($tabela as $video)
-
  <div class="card text-center">
   <div class="card-header">ID DA CATEGORIA
   {{$video->id_categoria}}
@@ -69,9 +67,7 @@
   <div class="card-footer text-muted">
   Status: {{$video->status}}
   </div>
-
 </div>
-
 
 	    @endforeach
 

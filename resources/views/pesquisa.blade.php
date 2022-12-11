@@ -7,15 +7,22 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
 
+
+
 <?php
-    use App\Models\Categorias;
-    $tabela = Categorias::all();
-?>	 
+    use App\Models\Videos;
+    $tabela = videos::all();
+    use App\Http\Controllers\Sistema\PesquisaController;
+
+    $itensP = videos::where('idcategoria',$id)->get(); 
+
+?>
+
 
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Biblioteca</a>
@@ -25,7 +32,7 @@
       -->
       </ul>
       <ul id="nav-mobile" class="sidenav">
-      @foreach ($tabela as $categoria)
+      @foreach ($itensP as $categoria)
        <li> <a href="{{ url('pesquisa', ['id' => $categoria->id]) }}"> {{$categoria->nome}}</a></li>
         @endforeach
 
@@ -38,16 +45,21 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Biblioteca Pessoal</h1>
+      <h1 class="header center orange-text">   <?php  echo $id; ?> 
+</h1>
       <div class="row center">
-        <h5 class="header col s12 light">LInks de diversos asssuntos</h5>
+        <h5 class="header col s12 light"></h5>
       </div>
    
-      @foreach ($tabela as $c)
+  
+    @foreach ($tabela as $categoria)
+
+
 
   <div class="collection">
-    <a href="{{ url('pesquisa', ['id' => $c->id]) }}" class="collection-item"><span class="badge">{{$c->id}}</span>{{$c->nome}}</a>
+    <a href="{{ url('pesquisa', ['id' => $categoria->id]) }}" class="collection-item"><span class="badge">{{$categoria->id}}</span>{{$categoria->nome}}</a>
   </div>
+
 
   @endforeach
       <br><br>
@@ -65,11 +77,11 @@
     </div>
   </footer>
 
-
+  
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
 
   </body>
 </html>
