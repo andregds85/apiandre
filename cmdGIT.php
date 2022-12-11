@@ -10,7 +10,7 @@ git add --all
 
 Cria um commit com uma mensagem 
 
-git commit -m "Melhorando a api"
+git commit -m "API e UM SITE "
 
 git push -u origin master
 git push --force origin main
