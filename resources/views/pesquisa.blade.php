@@ -17,9 +17,9 @@
 <?php
     use App\Models\Videos;
     $tabela = videos::all();
-    use App\Http\Controllers\Sistema\PesquisaController;
+    use App\Http\Controllers\PesquisaController;
 
-    $itensP = videos::where('idcategoria',$id)->get(); 
+     $itensP = videos::where('id_categoria',$id)->get(); 
 
 ?>
 
@@ -50,17 +50,18 @@
       <div class="row center">
         <h5 class="header col s12 light"></h5>
       </div>
-   
-  
-    @foreach ($tabela as $categoria)
 
 
 
-  <div class="collection">
-    <a href="{{ url('pesquisa', ['id' => $categoria->id]) }}" class="collection-item"><span class="badge">{{$categoria->id}}</span>{{$categoria->nome}}</a>
-  </div>
-
-
+    @foreach ($itensP as $categoria)
+         
+  <ul class="collection with-header">
+        <li class="collection-header"><h5>{{$categoria->id}}  {{$categoria->nome}}</h5></li>
+        <li class="collection-item"><div>Descricao: {{$categoria->descricao}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+        <li class="collection-item"><div>Link: {{$categoria->link}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+        <li class="collection-item"><div>Embarcado:{{$categoria->embarcado}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+        <li class="collection-item"><div>Status:{{$categoria->status}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+      </ul>
   @endforeach
       <br><br>
 
