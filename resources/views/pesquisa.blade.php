@@ -53,21 +53,48 @@
 
 
 
-    @foreach ($itensP as $categoria)
-         
-  <ul class="collection with-header">
-        <li class="collection-header"><h5>{{$categoria->id}}  {{$categoria->nome}}</h5></li>
-        <li class="collection-item"><div>Descricao: {{$categoria->descricao}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-        <li class="collection-item"><div>Link: {{$categoria->link}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-        <li class="collection-item"><div>Embarcado:{{$categoria->embarcado}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-        <li class="collection-item"><div>Status:{{$categoria->status}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-      </ul>
-  @endforeach
-      <br><br>
+
+
+
+      @foreach ($itensP as $categoria)
+
+  <ul class="collapsible">
+  <li>
+    <div class="collapsible-header">
+      <i class="material-icons">live_tv</i>
+      {{$categoria->nome}}
+      <span class="new badge"> | </span></div>
+    <div class="collapsible-body">
+   
+    <p><b>Descrição: </b>{{$categoria->descricao}}</p>
+
+    <p><b>Link: </b>{{$categoria->link}}</p>
+
+    <?php $embarcado=$categoria->embarcado; ?>
+
+    <p><?php echo $embarcado; ?></p>
+
+
+    <p><b>Status: </b>{{$categoria->status}}</p>
+
+  
+  
+  </div>
+  </li>
+ </ul>
+
+ @endforeach
+
+
+
 
     </div>
   </div>
 
+
+
+
+ 
   <footer class="page-footer orange">
     <div class="container">
     <div class="footer-copyright">
@@ -79,10 +106,12 @@
   </footer>
 
   
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../js/materialize.js"></script>
-  <script src="../js/init.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <script src="../js/init.js"></script>
+    <script src="../js/materialize.js"></script>
 
   </body>
 </html>
